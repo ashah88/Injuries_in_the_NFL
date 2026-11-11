@@ -5,9 +5,12 @@ def clean_games() -> pd.DataFrame:
     lower_year_mask = raw_games_data["season"] >= 2012
     upper_year_mask = raw_games_data["season"] <= 2025
     cleaned_games_data = raw_games_data[lower_year_mask & upper_year_mask]
-    games_master = cleaned_games_data[["game_id", "season", "week", "gameday",
+    games_master = cleaned_games_data[["game_id", "season", "week", 
                                        "home_team", "away_team", "home_rest",
-                                       "away_rest"]]
+                                       "away_rest"]].copy()
+    teams = ["home_team", "away_team"]
+    filter = {"SD": "LAC", "STL": "LA", "OAK": "LV"}
+    games_master[teams] = games_master[teams].replace(filter)
     return games_master
 
 def injuries_over_time() -> pd.DataFrame:
@@ -33,7 +36,9 @@ def injuries_over_time() -> pd.DataFrame:
                                  injuries_2024, injuries_2025],
                                  ignore_index=True)
     injuries_master = cleaned_injuries[["season", "team", "week", "position",
-                                        "full_name", "report_status"]]
+                                        "report_status"]].copy()
+    filter = {"SD": "LAC", "STL": "LA", "OAK": "LV"}
+    injuries_master["team"] = injuries_master["team"].replace(filter)
     return injuries_master   
 
 def main():
