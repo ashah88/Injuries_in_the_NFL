@@ -34,7 +34,7 @@ def plot_injuries(counts: pd.Series) -> px.bar:
     return px.bar(
         x=counts.index,
         y=counts.values,
-        title="Reported NFL Injuries by Position",
+        title="Reported NFL Injuries by NFL Position 2012 -2025",
         labels={"x": "Position", "y": "Number of Injuries"}
     )
 
