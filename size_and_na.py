@@ -1,6 +1,17 @@
+"""
+Jack Kjar
+CSE 163 AE
+This file contains a script that finds the shape/size of our datasets, and
+the number of missing entries in our datasets.
+"""
 import pandas as pd
 
-def eda_questions() -> None:
+
+def main() -> None:
+    """
+    Finds and prints the shape of each dataset and the number of missing
+    entries in each dataset.
+    """
     games = pd.read_csv("cleaned_games.csv")
     injuries = pd.read_csv("cleaned_injuries.csv")
     shape_games = games.shape
@@ -12,8 +23,6 @@ def eda_questions() -> None:
     num_missing_injuries = injuries.isna().sum()
     print(f"Num NA entires in cleaned_injuries.csv: {num_missing_injuries}")
 
-def main():
-    eda_questions()
 
 if __name__ == '__main__':
     main()
