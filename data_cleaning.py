@@ -47,5 +47,12 @@ def main():
     games_data.to_csv("cleaned_games.csv")
     injuries_data.to_csv("cleaned_injuries.csv")
 
+    # Summarize quantatative data
+    games = pd.read_csv('cleaned_games.csv')
+    injuries = pd.read_csv('cleaned_injuries.csv')
+
+    print(games[['home_rest', 'away_rest']].describe())
+    print(injuries[['season', 'week']].describe())
+
 if __name__ == '__main__':
     main()
