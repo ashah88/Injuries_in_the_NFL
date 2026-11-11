@@ -22,6 +22,22 @@ def count_injuries(injuries: pd.DataFrame) -> pd.Series:
     valid = injuries[has_position]
     return valid["position"].value_counts()
 
+def plot_injuries(counts: pd.Series) -> px.bar:
+    """
+    Returns a bar chart of the number of reported injuries for each
+    position, in the same order as the given counts.
+ 
+    Parameters:
+        counts: number of injuries for each position, indexed by
+                position
+    """
+    return px.bar(
+        x=counts.index,
+        y=counts.values,
+        title="Reported NFL Injuries by Position",
+        labels={"x": "Position", "y": "Number of Injuries"}
+    )
+
 def main() -> None:
     injuries = pd.read_csv("cleaned_injuries.csv")
     counts = count_injuries(injuries)
@@ -30,12 +46,7 @@ def main() -> None:
     print(f"\nMost injuries: {counts.index[0]} ({counts.iloc[0]})")
     print(f"Fewest injuries: {counts.index[-1]} ({counts.iloc[-1]})")
  
-    fig = px.bar(
-        x=counts.index,
-        y=counts.values,
-        title="Reported NFL Injuries by Position",
-        labels={"x": "Position", "y": "Number of Injuries"}
-    )
+    fig = plot_injuries(counts)
     fig.write_html("injuries_by_position.html")
 
 
