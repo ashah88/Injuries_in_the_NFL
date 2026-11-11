@@ -9,29 +9,32 @@ import pandas as pd
 import plotly.express as px
 
 
-def main() -> None:
+def count_injuries(injuries: pd.DataFrame) -> pd.Series:
     """
-    Prints the number of reported injuries for each position, sorted
-    from most to fewest, followed by the positions with the most and
-    fewest. A player is counted once per season and week.
+    Returns the number of reported injuries for each position, sorted
+    from most to fewest. Rows with a blank or missing position are
+    ignored.
+ 
+    Parameters:
+        injuries: DataFrame of injury reports with a "position" column
     """
-
-    injuries = pd.read_csv("cleaned_injuries.csv")
-
     has_position = injuries["position"].str.strip() != ""
     valid = injuries[has_position]
+    return valid["position"].value_counts()
 
-    counts = valid["position"].value_counts()
-
+def main() -> None:
+    injuries = pd.read_csv("cleaned_injuries.csv")
+    counts = count_injuries(injuries)
+ 
     print(counts)
     print(f"\nMost injuries: {counts.index[0]} ({counts.iloc[0]})")
     print(f"Fewest injuries: {counts.index[-1]} ({counts.iloc[-1]})")
-
+ 
     fig = px.bar(
         x=counts.index,
         y=counts.values,
-        labels={"x": "Position", "y": "Number of Injuries"},
-        title="Injuries by Position",
+        title="Reported NFL Injuries by Position",
+        labels={"x": "Position", "y": "Number of Injuries"}
     )
     fig.write_html("injuries_by_position.html")
 
