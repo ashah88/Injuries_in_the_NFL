@@ -1,0 +1,13 @@
+,season,team,week,position,full_name,report_status
+0,2024,CLE,1,WR,Player A,Questionable
+1,2024,CLE,1,WR,Player B,Probable
+2,2024,KC,1,WR,Player C,Out
+3,2024,KC,2,WR,Player D,Questionable
+4,2024,KC,2,RB,Player E,Probable
+5,2024,MIN,1,RB,Player F,Out
+6,2023,MIN,2,RB,Player G,Questionable
+7,2025,MIN,2,QB,Player H,Probable
+8,2025,ARI,1,QB,Player I,Questionable
+9,2025,ARI,2,TE,Player J,Out
+10,2025,CLE,2,LB,Player K,Out
+11,2025,ARI,2,P,Player L,Probable
