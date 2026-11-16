@@ -21,7 +21,7 @@ def test_team_rest(games):
 def test_plot_games_by_rest(games):
     rest = question2.team_rest(games)
     # Have to fix
-    #counts = question2.count_games_by_rest(rest)
+    counts = question2.plot_games_by_rest(rest)
     counts = counts.set_index('rest_days')['games']
  
     assert counts[7] == 3
