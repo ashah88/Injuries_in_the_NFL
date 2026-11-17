@@ -11,7 +11,7 @@ from plotly.graph_objs import Figure
 def count_injuries(injuries: pd.DataFrame) -> pd.Series:
     """
     Behavior:
-        Counts the number of reported injuries for each position.
+        Counts the number of reported out designations for each position.
         Rows with a blank or missing position are ignored.
     Parameters:
         injuries - DataFrame of injury reports with a "position" column
@@ -20,6 +20,7 @@ def count_injuries(injuries: pd.DataFrame) -> pd.Series:
     Exceptions:
         None
     """
+    injuries = injuries[injuries["report_status"] == "Out"]
     has_position = injuries["position"].str.strip() != ""
     valid = injuries[has_position]
     return valid["position"].value_counts()
@@ -28,12 +29,12 @@ def count_injuries(injuries: pd.DataFrame) -> pd.Series:
 def plot_injuries(counts: pd.Series) -> Figure:
     """
     Behavior:
-        Creates a bar chart of the number of reported injuries for each position.
+    Creates a bar chart of the number of reported injuries for each position.
     Parameters:
         counts: number of injuries for each position, indexed by
                 position
     Returns:
-        px.bar - bar chart of the number of reported injuries for each position.
+    px.bar - bar chart of the number of reported injuries for each position.
     """
     return px.bar(
         x=counts.index,
