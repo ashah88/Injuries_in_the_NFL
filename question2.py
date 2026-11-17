@@ -55,7 +55,6 @@ def match_injuries_to_games(outs: pd.DataFrame,
     '''
     merged = rest.merge(outs, on=['season', 'team', 'week'], how='left')
     merged['injuries'] = merged['injuries'].fillna(0)
-    merged.to_csv("games_and_injuries.csv")
 
     return merged
 
