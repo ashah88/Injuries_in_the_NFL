@@ -1,16 +1,16 @@
 """
 Jack Kjar
 CSE 163 AE
-This file contains a script that finds the shape/size of our datasets, the
-number of missing entries in our datasets, the seven number summary of
-each quantitative variable, and the counts of each categorical variable.
+This file contains a script that tests our data_analysis.py file. It uses
+small datasets that allow us to manually verify all numbers outputted
+by the script.
 """
 import pandas as pd
 
 
 def main() -> None:
     """
-    Finds and prints the shape of each dataset. the number of missing
+    Finds and prints the shape of each test dataset. the number of missing
     entries in each dataset, the seven number summary of each quantitative
     variable, and the counts of each categorical variable.
     """
