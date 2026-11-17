@@ -7,7 +7,7 @@ import pandas as pd
 import plotly.express as px
 
 
-def main():
+def main() -> None:
     """
     Creates a plotly scatter plot showing the number of out designations
     per season in the NFL between 2012 and 2025.
