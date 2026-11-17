@@ -22,10 +22,6 @@ def main() -> None:
     question2.main()
     question3.main()
 
-    test_q1.main()
-    test_q2.main()
-    test_q3.main()
-
 
 if __name__ == "__main__":
     main()
