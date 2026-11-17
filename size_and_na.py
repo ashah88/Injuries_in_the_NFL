@@ -22,6 +22,8 @@ def main() -> None:
     print(f"Amount of NA entries in cleaned_games.csv: {num_missing_games}")
     num_missing_injuries = injuries.isna().sum()
     print(f"Num NA entires in cleaned_injuries.csv: {num_missing_injuries}")
+    print(f"Injuries described: {injuries.describe()}")
+    print(f"Games described: {games.describe()}")
 
 
 if __name__ == '__main__':
