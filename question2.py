@@ -9,7 +9,8 @@ import plotly.express as px
 GAMES_FILE: str = "cleaned_games.csv"
 INJURIES_FILE: str = "cleaned_injuries.csv"
 
-def count_outs(injuries: pd.DataFrame)->pd.DataFrame:
+
+def count_outs(injuries: pd.DataFrame) -> pd.DataFrame:
     '''
     Given a Pandas DataFrame of NFL injuries, counts how many "Out"
     designations each team had in each week, using the season, team, and week
