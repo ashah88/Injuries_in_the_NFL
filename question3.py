@@ -1,7 +1,5 @@
 """
 Name: Shreyas Sao
-Section: <your section>
-
 Find the NFL positions with the highest and lowest injury rates.
 """
 
