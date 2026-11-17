@@ -8,6 +8,7 @@ import test_q1
 import test_q2
 import test_q3
 
+
 def main() -> None:
     """Run data cleaning followed by all research question analyses."""
     data_cleaning.main()

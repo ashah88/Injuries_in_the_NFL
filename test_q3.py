@@ -3,8 +3,6 @@ import pandas as pd
 from question3 import count_injuries, plot_injuries
 
 
-
-
 def test_plot_injuries(injuries: pd.DataFrame) -> None:
     """
     Behavior:

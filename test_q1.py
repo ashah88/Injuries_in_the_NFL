@@ -8,7 +8,7 @@ import pandas as pd
 import plotly.express as px
 
 
-def main():
+def main() -> None:
     """
     Produces a test plot to verify the research question 1 plot is correct.
     """
