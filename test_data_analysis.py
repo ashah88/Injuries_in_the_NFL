@@ -21,9 +21,9 @@ def main() -> None:
     print(f"(Rows, Columns) Games: {shape_games}. Injuries: {shape_injuries}")
 
     num_missing_games = games.isna().sum()
-    print(f"Amount of NA entries in cleaned_games.csv: {num_missing_games}")
+    print(f"Amount of NA entries in test_games.csv: {num_missing_games}")
     num_missing_injuries = injuries.isna().sum()
-    print(f"Num NA entires in cleaned_injuries.csv: {num_missing_injuries}")
+    print(f"Num NA entires in test_injuries.csv: {num_missing_injuries}")
     print(f"Injuries described: {injuries.describe()}")
     print(f"Games described: {games.describe()}")
     print(f"Position counts: {injuries["position"].value_counts()}")
