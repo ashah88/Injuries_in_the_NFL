@@ -8,9 +8,6 @@ import data_cleaning
 import question2
 import question3
 import research_question_1
-import test_q1
-import test_q2
-import test_q3
 
 
 def main() -> None:
