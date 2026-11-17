@@ -62,7 +62,7 @@ def clean_injuries() -> pd.DataFrame:
     return injuries_master
 
 
-def main():
+def main() -> None:
     games_data = clean_games()
     injuries_data = clean_injuries()
     games_data.to_csv("cleaned_games.csv")

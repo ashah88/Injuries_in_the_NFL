@@ -6,8 +6,8 @@ This file contains a script that creates a plot to answer research question 2.
 import pandas as pd
 import plotly.express as px
 
-GAMES_FILE = 'cleaned_games.csv'
-INJURIES_FILE = 'cleaned_injuries.csv'
+GAMES_FILE: str = "cleaned_games.csv"
+INJURIES_FILE: str = "cleaned_injuries.csv"
 
 
 def count_outs(injuries: pd.DataFrame)->pd.DataFrame:
@@ -17,9 +17,9 @@ def count_outs(injuries: pd.DataFrame)->pd.DataFrame:
     outs = injuries[injuries['report_status'] == 'Out']
     groups = outs.groupby(['season', 'team', 'week'])
 
-    num_injuries = groups.size().rename('injuries')
+    num_injuries = groups.size().rename("injuries")
     num_injuries = num_injuries.reset_index()
-    
+
     return num_injuries
 
 
@@ -56,7 +56,18 @@ def plot_injuries_by_rest(merged: pd.DataFrame, file_name: str = 'rq2_rest_days.
     group_by_rest = groups['injuries'].agg(['mean', 'count'])
     group_by_rest = group_by_rest.reset_index()
 
-    fig = px.bar(group_by_rest, x='rest_days', y='mean', hover_data=['count'], labels={'rest_days': 'Days of rest before game', 'mean': 'Average injuries per game', 'count': 'Number of games'}, title="Injuries per Game by Days of Rest (2012-2025)")
+    fig = px.bar(
+        group_by_rest,
+        x="rest_days",
+        y="mean",
+        hover_data=["count"],
+        labels={
+            "rest_days": "Days of rest before game",
+            "mean": "Average injuries per game",
+            "count": "Number of games",
+        },
+        title="Injuries per Game by Days of Rest (2012-2025)",
+    )
 
     fig.write_html(file_name)
 
@@ -78,7 +89,7 @@ def plot_games_by_rest(rest: pd.DataFrame, file_name: str = 'rq2_games_by_rest.h
     return fig
 
 
-def main():
+def main() -> None:
     games = pd.read_csv(GAMES_FILE)
     injuries = pd.read_csv(INJURIES_FILE)
 
@@ -89,5 +100,5 @@ def main():
     plot_games_by_rest(rest)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

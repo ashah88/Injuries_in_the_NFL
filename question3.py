@@ -7,6 +7,7 @@ Find the NFL positions with the highest and lowest injury rates.
 
 import pandas as pd
 import plotly.express as px
+from plotly.graph_objs import Figure
 
 
 def count_injuries(injuries: pd.DataFrame) -> pd.Series:
@@ -26,7 +27,7 @@ def count_injuries(injuries: pd.DataFrame) -> pd.Series:
     return valid["position"].value_counts()
 
 
-def plot_injuries(counts: pd.Series) -> px.bar:
+def plot_injuries(counts: pd.Series) -> Figure:
     """
     Behavior:
         Creates a bar chart of the number of reported injuries for each position.

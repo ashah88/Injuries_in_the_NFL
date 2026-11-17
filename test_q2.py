@@ -91,12 +91,12 @@ def test_plot_games_by_rest(games: pd.DataFrame) -> None:
     assert os.path.exists(TEST_GAMES_PLOT)
 
 
-def main():
+def main() -> None:
     games = pd.read_csv(TEST_GAMES)
     test_team_rest(games)
     test_plot_injuries_by_rest(games)
     test_plot_games_by_rest(games)
-    print('All tests passed')
+    print("All tests passed")
 
 
 if __name__ == '__main__':
