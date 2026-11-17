@@ -8,6 +8,7 @@ import data_cleaning
 import question2
 import question3
 import research_question_1
+import data_analysis
 
 
 def main() -> None:
@@ -18,7 +19,7 @@ def main() -> None:
     research_question_1.main()
     question2.main()
     question3.main()
-
+    data_analysis.main()
 
 if __name__ == "__main__":
     main()
