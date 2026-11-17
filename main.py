@@ -1,4 +1,8 @@
-"""Run the project's data cleaning and analysis scripts in order."""
+"""
+Ajay Shah, Jack Kjar, Shreyas Sao
+CSE 163 A
+Run the project's data cleaning and analysis scripts in order.
+"""
 
 import data_cleaning
 import question2
@@ -10,7 +14,9 @@ import test_q3
 
 
 def main() -> None:
-    """Run data cleaning followed by all research question analyses."""
+    """
+    Run data cleaning followed by all research question analyses and tests.
+    """
     data_cleaning.main()
     research_question_1.main()
     question2.main()
