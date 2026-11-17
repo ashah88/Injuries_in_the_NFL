@@ -2,7 +2,8 @@
 Jack Kjar
 CSE 163 AE
 This file contains a script that finds the shape/size of our datasets, and
-the number of missing entries in our datasets.
+the number of missing entries in our datasets. Also prints the
+quantititative summaries of our variables of interest.
 """
 import pandas as pd
 
@@ -10,7 +11,7 @@ import pandas as pd
 def main() -> None:
     """
     Finds and prints the shape of each dataset and the number of missing
-    entries in each dataset.
+    entries in each dataset, as well as the description of each set.
     """
     games = pd.read_csv("cleaned_games.csv")
     injuries = pd.read_csv("cleaned_injuries.csv")
